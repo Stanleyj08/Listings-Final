@@ -1,0 +1,16 @@
+package com.promineo.app.service;
+
+import java.util.List;
+
+import com.promineo.app.entity.Purchase;
+import com.promineo.app.repository.PurchaseRepository;
+
+public class PurchaseServiceImp implements PurchaseService{
+private PurchaseRepository purchaserepository;
+	@Override
+	public List<Purchase> getAllPurchas() {
+		// TODO Auto-generated method stub
+		return purchaserepository.findAll();
+	}
+
+}

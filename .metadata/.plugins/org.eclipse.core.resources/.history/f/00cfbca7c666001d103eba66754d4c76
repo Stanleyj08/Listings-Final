@@ -1,0 +1,45 @@
+package com.promineo.app.entity;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Data;
+@Data
+@Entity
+@Table(name="purchase")
+public class Purchase {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int purchase_id;
+
+	@Column(value="users_id")
+	private int users_id;
+
+	//@Column(value="purchase_date")
+	//private String purchase_date; 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="users_id", referencedColumnName = "users_id")
+	@JsonIgnore
+	private Users user;
+	public void assignUser(Users user2) {
+		this.user = user2;
+		
+	}
+	
+}
+

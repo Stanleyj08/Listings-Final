@@ -1,0 +1,5 @@
+package com.promineo.app.controller;
+
+public class PurchaseController {
+
+}

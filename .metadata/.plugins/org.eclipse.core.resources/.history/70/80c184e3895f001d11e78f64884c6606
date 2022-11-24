@@ -1,0 +1,19 @@
+package com.promineo.app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.promineo.app.entity.Payment;
+import com.promineo.app.repository.PaymentRepository;
+@Service
+public class PaymentServiceImp implements PaymentService{
+   @Autowired
+	private PaymentRepository paymentRepository;
+	
+	@Override
+	public Payment savePayment(Payment pay) {
+		// TODO Auto-generated method stub
+		return paymentRepository.save(pay);
+	}
+
+}

@@ -1,0 +1,22 @@
+package com.promineo.app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.promineo.app.entity.Users;
+import com.promineo.app.repository.ListingsRepository;
+import com.promineo.app.repository.UsersRepository;
+
+public class UsersImplementation implements UsersService{
+	private UsersRepository usersrepository;
+	@Autowired
+	public UsersImplementation(UsersRepository usersrepository) {
+		this.usersrepository = usersrepository;
+	}
+	
+	@Override
+	public Users saveUser(Users user) {
+		// TODO Auto-generated method stub
+		return usersrepository.save(user);
+	}
+
+}

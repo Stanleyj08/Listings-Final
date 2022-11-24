@@ -1,0 +1,5 @@
+package com.promineo.app.service;
+
+public interface UsersService {
+
+}

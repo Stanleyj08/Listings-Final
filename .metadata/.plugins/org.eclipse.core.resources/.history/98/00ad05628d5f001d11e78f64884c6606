@@ -1,0 +1,30 @@
+package com.promineo.app.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.promineo.app.entity.Purchase;
+import com.promineo.app.service.PurchaseService;
+
+
+@RestController
+@RequestMapping("/listings/purchase")
+public class PurchaseController {
+	private PurchaseService purchaseservice;
+	@Autowired
+	public  PurchaseController(PurchaseService purchaseservice) {
+		super();
+		this.purchaseservice = purchaseservice;
+	}
+
+	@GetMapping()
+	public List<Purchase> getAllPurchase(){
+		return purchaseservice.getAllPurchase();
+	}
+
+
+}

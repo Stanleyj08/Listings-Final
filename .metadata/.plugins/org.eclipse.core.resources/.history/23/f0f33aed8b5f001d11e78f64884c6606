@@ -1,0 +1,23 @@
+package com.promineo.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.promineo.app.entity.Purchase;
+import com.promineo.app.repository.PurchaseRepository;
+import com.promineo.app.repository.UsersRepository;
+
+public class PurchaseServiceImp implements PurchaseService{
+	@Autowired
+	public PurchaseServiceImp(PurchaseRepository purchaserepository) {
+		this.purchaserepository = purchaserepository;
+	@Autowired
+	private PurchaseRepository purchaserepository;
+	@Override
+	public List<Purchase> getAllPurchas() {
+		// TODO Auto-generated method stub
+		return purchaserepository.findAll();
+	}
+
+}

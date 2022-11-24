@@ -1,0 +1,46 @@
+package com.promineo.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.promineo.app.entity.Users;
+import com.promineo.app.exception.ResourceNotFoundException;
+
+import com.promineo.app.repository.UsersRepository;
+@Service
+public class UsersImplementation implements UsersService{
+	
+	private UsersRepository usersrepository;
+	@Autowired
+	public UsersImplementation(UsersRepository usersrepository) {
+		this.usersrepository = usersrepository;
+	}
+	
+	@Override
+	public Users saveUser(Users user) {
+		// TODO Auto-generated method stub
+		return usersrepository.save(user);
+	}
+
+	@Override
+	public List<Users> getAllUsers() {
+		// TODO Auto-generated method stub
+		return usersrepository.findAll();
+	}
+
+	@Override
+	public Users updateUsers(Users user, Integer id) throws ResourceNotFoundException {
+		Users Users = usersrepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Users", "Id", id));
+		Users users = new Users();
+		users.setUsers_id(Users.getUsers_id());
+		users.setFirst_name(Users.getFirst_name());
+		users.setLast_name(Users.getLast_name());
+		 usersrepository.save(users);
+		   return users; 
+	}
+
+
+}

@@ -1,0 +1,47 @@
+package com.promineo.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.promineo.app.entity.Purchase;
+import com.promineo.app.entity.Users;
+import com.promineo.app.exception.ResourceNotFoundException;
+import com.promineo.app.repository.PurchaseRepository;
+import com.promineo.app.repository.UsersRepository;
+@Service
+public class PurchaseServiceImp implements PurchaseService{
+	
+	private PurchaseRepository purchaserepository;
+	@Autowired
+	public PurchaseServiceImp(PurchaseRepository purchaserepository) {
+		this.purchaserepository = purchaserepository;
+	}
+	@Override
+	public Purchase savePurchase(Purchase pur) {
+		// TODO Auto-generated method stub
+		return purchaserepository.save(pur);
+	}
+	@Override
+	public List<Purchase> getAllPurchase() {
+		// TODO Auto-generated method stub
+		return purchaserepository.findAll();
+	}
+	@Override
+	public Purchase updatePurchase(Purchase pur, Integer id) {
+		Purchase Users = purchaserepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Users", "Id", id));
+		Purchase users = new Purchase();
+		pur.setPurchase_id(pur.getPurchase_id());
+		pur.setUsers_id(pur.getUsers_id());
+		pur.setPurchase_date(pur.getPurchase_date());
+		purchaserepository.save(pur);
+		   return pur; 
+	
+	}
+	
+	
+	
+	
+
+}

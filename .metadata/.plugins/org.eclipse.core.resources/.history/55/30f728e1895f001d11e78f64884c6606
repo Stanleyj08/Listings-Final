@@ -1,0 +1,12 @@
+package com.promineo.app.service;
+
+import com.promineo.app.entity.Payment;
+
+public interface PaymentService {
+/*
+ * @param pay
+ * @return
+ */
+	Payment savePayment(Payment pay);
+
+}

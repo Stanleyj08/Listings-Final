@@ -1,0 +1,14 @@
+package com.promineo.app.service;
+
+import com.promineo.app.entity.Users;
+
+public interface UsersService {
+/*
+ * @param user
+ * @return
+ */
+	Users saveUser(Users user);
+
+	
+
+}

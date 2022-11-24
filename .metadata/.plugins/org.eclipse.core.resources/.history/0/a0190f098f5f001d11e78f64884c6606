@@ -1,0 +1,9 @@
+package com.promineo.app.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.promineo.app.entity.Purchase;
+
+public interface PurchaseRepository extends JpaRepository<Purchase, Integer>{
+
+}

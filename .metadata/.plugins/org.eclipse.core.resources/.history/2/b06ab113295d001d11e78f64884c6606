@@ -1,0 +1,27 @@
+package com.promineo.app.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="users")
+public class Users {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int users_id;
+
+	@Column(value="first_name")
+	private int first_name;
+
+	@Column(value="last_name")
+	private String last_name; 
+	}
+

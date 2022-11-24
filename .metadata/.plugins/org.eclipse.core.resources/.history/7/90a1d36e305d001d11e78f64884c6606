@@ -1,0 +1,21 @@
+package com.promineo.app.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.promineo.app.entity.Listings;
+import com.promineo.app.entity.Users;
+
+public interface UsersService {
+/*
+ * @param user
+ * @return
+ */
+	Users saveUser(Users user);
+
+	List<Users> getAllUsers();
+
+	
+
+}

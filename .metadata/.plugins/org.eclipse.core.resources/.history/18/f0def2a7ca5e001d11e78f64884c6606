@@ -1,0 +1,31 @@
+package com.promineo.app.service;
+
+import java.util.List;
+
+
+import com.promineo.app.entity.Users;
+import com.promineo.app.exception.ResourceNotFoundException;
+
+public interface UsersService {
+/*
+ * @param user
+ * @param id
+ * @param usersId
+ * @return
+ */
+	Users saveUser(Users user);
+
+	List<Users> getAllUsers();
+
+	Users updateUsers(Users user, Integer id) throws ResourceNotFoundException;
+
+	static void deleteUser(int usersId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	
+
+}

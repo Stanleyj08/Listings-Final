@@ -1,0 +1,20 @@
+package com.promineo.app.entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.data.relational.core.mapping.Column;
+
+public class Purchase {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int purchase_id;
+
+	@Column(value="users_id")
+	private int users_id;
+
+	@Column(value="purchase_date")
+	private String purchase_date; 
+	}
+
